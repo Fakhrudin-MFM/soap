@@ -19,7 +19,7 @@ function fault(res, err) {
 module.exports = function (req, res) {
   if (!req.is('text/xml') && !req.is('multipart/related')
     || req.is('text/xml') && typeof req.body !== 'string') {
-    return res.status(400).send('Bad Request');
+    return res.status(400).send(__(Errors.HTTP_400));
   }
 
   /**
@@ -39,7 +39,7 @@ module.exports = function (req, res) {
         if (authMode !== 'none') {
           let credentials = parseSecurity(req.body, authMode === 'token' || authMode === 'oauth');
           if (!credentials) {
-            return fault(res, {code: errors.ACCESS_DENIED, message: 'Доступ запрещен', stack: ''});
+            return fault(res, {code: errors.ACCESS_DENIED, message: __(errors.ACCESS_DENIED), stack: ''});
           }
           if (authMode === 'oauth') {
             auth = scope.oauth.authenticate({Authorization: 'Bearer ' + credentials.token});

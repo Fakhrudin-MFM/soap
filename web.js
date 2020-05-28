@@ -14,10 +14,12 @@ const extendDi = require('core/extendModuleDi');
 const path = require('path');
 const alias = require('core/scope-alias');
 const errorSetup = require('core/error-setup');
+const i18nSetup = require('core/i18n-setup');
 
 const lang = config.lang || rootConfig.lang || 'ru';
 const i18nDir = path.join(__dirname, 'i18n');
 errorSetup(lang, i18nDir);
+i18nSetup(lang, config.i18n || i18nDir, moduleName);
 
 const app = module.exports = express(); // eslint-disable-line
 

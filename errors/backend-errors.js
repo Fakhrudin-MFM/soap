@@ -11,5 +11,8 @@ module.exports = {
   WRONG_NODE: `${prefix}.wrongnode`,
   WRONG_ARG: `${prefix}.wrongarg`,
   LACK_ARGS: `${prefix}.lackargs`,
-  WASTE_ARGS: `${prefix}.wasteargs`
+  WASTE_ARGS: `${prefix}.wasteargs`,
+  HTTP_500: `${prefix}.500`,
+  HTTP_404: `${prefix}.404`,
+  HTTP_400: `${prefix}.400`
 };
